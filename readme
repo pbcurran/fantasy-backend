@@ -1,0 +1,6 @@
+###### INSTRUCTIONS FOR STARTING THE SERVER
+# in NBA_FANTASY
+    # Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+    # myenv\scripts\activate
+# in ./backend 
+    # python manage.py runserver
