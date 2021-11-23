@@ -3,6 +3,8 @@ from django.http import JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
+import pprint
+
 from espn_api.basketball import League
 
 from .products import products
@@ -19,12 +21,15 @@ def get_league_teams():
         players = []
         
         for player in team.roster:
+            pprint.pprint(player.__dict__)
             # last_season_player_average = get_last_season_average(player)
             players.append({
                 'playerId': player.playerId,
                 'playerName': player.name,
                 'currentAverage': player.avg_points,
                 'injured': player.injured,
+                'position': player.position,
+                'team': player.proTeam,
                 'stats': player.stats['total_2022'],
                 'projectedAverage': player.projected_avg_points
             })
